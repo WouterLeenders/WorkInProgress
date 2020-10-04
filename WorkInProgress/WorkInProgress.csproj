@@ -10,18 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Maps.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Maps.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Maps.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Maps.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
+    <None Update="Start.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
