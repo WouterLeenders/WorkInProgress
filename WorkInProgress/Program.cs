@@ -1,16 +1,8 @@
-﻿using System;
+﻿using ITGlobal.CommandLine;
+using System;
 using System.Collections.Generic;
-using System.IO;
-using System.IO.Enumeration;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Threading;
-using System.Threading.Tasks.Sources;
 using System.Timers;
-using ITGlobal.CommandLine;
-using ITGlobal.CommandLine.Table;
 using static NativeMethods;
 
 namespace WorkInProgress
@@ -35,7 +27,7 @@ namespace WorkInProgress
         private static int lives = 3;
         private static int score = 0;
 
-        private readonly static char[] characterBrushes = new char[] { '░', '▒', '▓', '█', '■', '♥', '♠', '♣', '♦' };
+        private readonly static char[] characterBrushes = new char[] { '░', '▒', '▓', '█', '■', '♥', '◊', '♪', '♫' };
         private static ConsoleColor activeColor = ConsoleColor.Red;
         private static char activeBrush = characterBrushes.First();
 
@@ -83,15 +75,15 @@ namespace WorkInProgress
 
                             if(random.Next(1) == 0)
                             {
-                                enemy = AnsiString.Create(characterBrushes[random.Next(6, 8)].ToString().BlueOnBlack());
+                                enemy = AnsiString.Create(characterBrushes[random.Next(6, 8)].ToString()).Blue();
                             } else
                             {
-                                enemy = AnsiString.Create(characterBrushes[random.Next(6, 8)].ToString().RedOnBlack());
+                                enemy = AnsiString.Create(characterBrushes[random.Next(6, 8)].ToString()).Red();
                             }
 
-                            var enemieCommand = new ConsoleCommand(random.Next(0, 79), random.Next(1, 39), enemy);
-                            enemieCommand.Execute();
-                            gameBuffer.Add(enemieCommand);
+                            var enemyCommand = new ConsoleCommand(random.Next(0, 79), random.Next(1, 39), enemy);
+                            enemyCommand.Execute();
+                            gameBuffer.Add(enemyCommand);
                         }
 
                         // Remove items
