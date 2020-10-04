@@ -10,6 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="End.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Start.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
